@@ -1,0 +1,5 @@
+{ "index" : { "_index" : "basketball", "_type" : "record", "_id" : "1" } }
+{"team" : "Golden States Warriors","name" : "", "points" : 30,"rebounds" : 3,"assists" : 4, "blocks" : 5, "submit_date" : "2016-10-11"}
+{ "index" : { "_index" : "basketball", "_type" : "record", "_id" : "2" } }
+{"team" : "Golden States Warriors","name" : "Stephen Curry","points" : 32,"rebounds" : 5,"assists" : 8, "blocks" : 5, "submit_date" : "2016-10-13"}
+{ "index" : { "_index" : "basketball", "_type" : "record", "_id" : "3" } }
