@@ -1,11 +1,11 @@
-{ "index" : { "_index" : "epl", "_type" : "record", "_id" : "1" } }
+{ "index" : { "_index" : "epl", "_type" : "_doc", "_id" : "1" } }
 {"team" : "LiverpoolFC","name" : "Sadio Mane", "goal" : 1,"assists" : 4,  "submit_date" : "2016-10-11"}
-{ "index" : { "_index" : "epl", "_type" : "record", "_id" : "2" } }
+{ "index" : { "_index" : "epl", "_type" : "_doc", "_id" : "2" } }
 {"team" : "LiverpoolFC","name" : "Sadio Mane","goal" : 5,"assists" : 8,  "submit_date" : "2018-10-13"}
-{ "index" : { "_index" : "epl", "_type" : "record", "_id" : "3" } }
+{ "index" : { "_index" : "epl", "_type" : "_doc", "_id" : "3" } }
 {"team" : "LiverpoolFC","name" : "Mohamed Salah","goal" : 5,"assists" : 0,  "submit_date" : "2018-10-13"}
-{ "index" : { "_index" : "epl", "_type" : "record", "_id" : "4" } }
-{"team" : "LiverpoolFC","name" : "Mohamed Salah","goal" : 1,"assists" : 1,  "submit_date" : "2018-10-13"}
-{ "index" : { "_index" : "epl", "_type" : "record", "_id" : "5" } }
-{"team" : "LiverpoolFC","name" : "Mohamed Salah","goal" : 2,"assists" : 1,  "submit_date" : "2017-10-13"}
+{ "index" : { "_index" : "epl", "_type" : "_doc", "_id" : "4" } }
+{"team" : "Chelsea","name" : "Hazard","goal" : 1,"assists" : 1,  "submit_date" : "2018-10-13"}
+{ "index" : { "_index" : "epl", "_type" : "_doc", "_id" : "5" } }
+{"team" : "Chelsea","name" : "Hazard","goal" : 2,"assists" : 1,  "submit_date" : "2017-10-13"}
 
