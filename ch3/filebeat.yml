@@ -8,7 +8,7 @@ filebeat.prospectors:
 - type: log
   enabled: true
   paths:
-    - /home/elastic/datasets/elastic_blog_curated_access_logs_server*/*.log
+    - /opt/elasticsearch_training/ch3/elastic_blog_curated_access_logs_server*/*.log
 
 processors:
  - decode_json_fields:
