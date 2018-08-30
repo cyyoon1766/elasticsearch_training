@@ -1,0 +1,25 @@
+filebeat.inputs:
+- type: log
+  enabled: true
+  paths:
+   - /var/log/httpd/access_log
+  tags: ["apache", "access_log"]
+
+- type: log
+  enabled: true
+  paths:
+   -  /var/log/mysqld.log
+  tags: ["mysql", "mysql_log"] 
+
+filebeat.config.modules:
+  path: ${path.config}/modules.d/*.yml
+  reload.enabled: true
+
+setup.template.settings:
+  index.number_of_shards: 3
+
+setup.kibana:
+  host: "localhost:5601"
+
+output.logstash:
+  hosts: ["localhost:5044"]
