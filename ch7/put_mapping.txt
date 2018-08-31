@@ -1,0 +1,62 @@
+PUT logstash_demo/
+{
+  "mappings": {
+    "log": {
+      "properties": {
+        "geoip": {
+          "properties": {
+            "location": {
+              "type": "geo_point"
+            }
+          }
+        },
+        "age": {
+          "type": "integer"
+        },
+        "client_id": {
+          "type": "keyword",
+          "ignore_above": 256
+        },
+        "client_ip": {
+          "type": "ip"
+        },
+        "device": {
+          "type": "keyword",
+          "ignore_above": 256
+        },
+        "gender": {
+          "type": "keyword",
+          "ignore_above": 256
+        },
+        "page_info": {
+          "type": "keyword",
+          "ignore_above": 256
+        },
+        "prod_avail": {
+          "type": "keyword",
+          "ignore_above": 256
+        },
+        "prod_id": {
+          "type": "integer"
+        },
+        "prod_name": {
+          "type": "text",
+          "fields": {
+            "keyword": {
+              "type": "keyword",
+              "ignore_above": 256
+            }
+          }
+        },
+        "prod_stat": {
+          "type": "keyword",
+          "ignore_above": 256
+        },
+        "referer": {
+          "type": "keyword",
+          "ignore_above": 256
+        }
+      }
+    }
+  }
+}

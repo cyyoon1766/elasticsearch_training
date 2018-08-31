@@ -1,0 +1,15 @@
+PUT logstash_demo/_doc/1
+{
+"client_ip": "201.218.255.197" ,
+"device":"Web",
+"client_id":"nhhan",
+"gender":"남성",
+"prod_avail":"취소",
+"referer":"외부링크",
+"page_info":"상품상세1",
+"prod_name":"냉동 삼겹 20%할인",
+"prod_id":26457815,
+"age": 51 ,
+"prod_stat":"정상"
+}
+
