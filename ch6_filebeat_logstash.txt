@@ -5,7 +5,7 @@
 ## httpd실행
 # systemctl start httpd
 
-###  curl으로 access 로스 생성
+###  curl으로 access 로그  생성
 # curl localhost/test.html
 
 ### 생성한 로그 확인
