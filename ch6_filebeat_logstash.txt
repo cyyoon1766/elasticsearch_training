@@ -1,0 +1,78 @@
+
+## access로그 테스트를 위한 httpd 설치
+# yum install httpd -y
+
+## httpd실행
+# systemctl start httpd
+
+###  curl으로 access 로스 생성
+# curl localhost/test.html
+
+### 생성한 로그 확인
+# cat /var/log/httpd/access_log
+
+### logstash  파일 수정 
+# vi /etc/logstash/conf.d/12_filebeat_tags.conf
+##############################################
+input{
+ beats{
+   port => 5044
+ }
+ beats{
+   port => 5033
+ }
+}
+filter {
+if "apache" in [tags] {
+    grok {
+      match => { "message" => "%{IPORHOST:clientip} %{USER:ident} %{USER:auth} \[%{HTTPDATE:timestamp}\] \"(?:%{WORD:verb} %{NOTSPACE:request}(?: HTTP/%{NUMBER:httpversion})?|%{DATA:rawrequest})\" %{NUMBER:response} (?:%{NUMBER:bytes}|-)" }
+      }
+     }
+if "mysql" in [tags] {
+    grok {
+      match => { "message" => "%{TIMESTAMP_ISO8601:log_timestamp} %{WORD} \[%{WORD:log_level}\]%{GREEDYDATA:mysql_log_message} " }
+      }
+    }
+}
+output{
+ elasticsearch{
+  document_type => "log"
+  hosts => "localhost:9200"
+ }
+}
+
+##############################################
+# systemctl  restart logstash
+
+
+### filebeat 파일 수정 
+# vi /etc/filebeat/filebeat.yml
+##############################################
+filebeat.inputs:
+- type: log
+  enabled: true
+  paths:
+   - /var/log/httpd/access_log
+  tags: ["apache", "access_log"]
+
+- type: log
+  enabled: true
+  paths:
+   -  /var/log/mysqld.log
+  tags: ["mysql", "mysql_log"]
+
+filebeat.config.modules:
+  path: ${path.config}/modules.d/*.yml
+  reload.enabled: true
+
+setup.template.settings:
+  index.number_of_shards: 3
+
+setup.kibana:
+  host: "localhost:5601"
+
+output.logstash:
+  hosts: ["localhost:5044"]
+##############################################
+
+# systemctl restart filebeat
